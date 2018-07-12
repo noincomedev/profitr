@@ -1,0 +1,8 @@
+type User {
+  _id: String
+  admin: Boolean
+}
+
+type Query {
+  user: User
+}

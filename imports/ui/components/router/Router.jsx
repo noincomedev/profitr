@@ -10,6 +10,9 @@ import theme from "../../../assets/theme";
 
 import DashboardPage from "../../pages/DashboardPage";
 import LandingPage from "../../pages/LandingPage";
+import PrivateRoute from "./PrivateRoute";
+
+import Spinner from "../utils/Spinner";
 
 const Router = ({ loading, user }) => {
   if (!loading) {
@@ -18,7 +21,11 @@ const Router = ({ loading, user }) => {
         <MuiThemeProvider theme={theme}>
           <Switch>
             {user ? (
-              <Route path="/" component={DashboardPage} />
+              <PrivateRoute
+                name="Dashboard"
+                path="/"
+                component={DashboardPage}
+              />
             ) : (
               <PublicRoute name="Home" path="/" component={LandingPage} />
             )}
@@ -27,7 +34,7 @@ const Router = ({ loading, user }) => {
       </BrowserRouter>
     );
   }
-  return <h1>Loading</h1>;
+  return <Spinner />;
 };
 
 export const CURRENT_USER = gql`

@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Accounts } from "meteor/accounts-base";
 import { ApolloProvider } from "react-apollo";
 import { ApolloLink, from } from "apollo-link";
 import { ApolloClient } from "apollo-client";
