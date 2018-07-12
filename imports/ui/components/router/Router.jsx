@@ -3,12 +3,19 @@ import gql from "graphql-tag";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { graphql } from "react-apollo";
 
+import DashboardPage from "../../pages/DashboardPage";
+import LandingPage from "../../pages/LandingPage";
+
 const Router = ({ loading, user }) => {
   if (!loading) {
     return (
       <BrowserRouter>
         <Switch>
-          <Route path="/" render={props => <h1>Hello, world router!</h1>} />
+          {user ? (
+            <Route path="/" component={DashboardPage} />
+          ) : (
+            <Route path="/" component={LandingPage} />
+          )}
         </Switch>
       </BrowserRouter>
     );
