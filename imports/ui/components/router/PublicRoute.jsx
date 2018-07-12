@@ -5,23 +5,23 @@ import { PropTypes } from "prop-types";
 import { withRouter } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
 
+import NavigationLayout from "../../layouts/navigation/NavigationLayout";
 import PublicFooter from "../navigation/PublicFooter";
-import PublicNavigation from "../navigation/PublicNavigation";
 
 const styles = theme => ({
   landingPageMain: {
     flex: 1,
-    marginTop: 64,
+    paddingTop: 56,
     [theme.breakpoints.up("sm")]: {
-      marginTop: 0
+      paddingTop: 64
     }
   },
   main: {
     flex: 1,
     backgroundColor: theme.palette.background.default,
-    marginTop: 56,
+    paddingTop: 56,
     [theme.breakpoints.up("sm")]: {
-      marginTop: 64
+      paddingTop: 64
     }
   }
 });
@@ -34,7 +34,7 @@ const PublicRoute = ({ classes, component, exact, location, name, path }) => {
         path={path}
         render={props => (
           <Fragment>
-            <PublicNavigation />
+            <NavigationLayout location={location} />
             <main
               className={classNames(
                 location.pathname == "/"
