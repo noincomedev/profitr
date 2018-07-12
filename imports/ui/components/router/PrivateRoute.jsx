@@ -8,7 +8,7 @@ import NavigationLayout from "../../layouts/navigation/NavigationLayout";
 const styles = theme => ({
   main: {
     flex: 1,
-    backgroundColor: theme.palette.background.default,
+    backgroundColor: theme.palette.secondary.light,
     padding: 24,
     marginTop: 56
   }
