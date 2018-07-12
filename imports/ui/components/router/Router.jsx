@@ -4,6 +4,8 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { graphql } from "react-apollo";
 import { MuiThemeProvider } from "@material-ui/core/styles";
 
+import PublicRoute from "./PublicRoute";
+
 import theme from "../../../assets/theme";
 
 import DashboardPage from "../../pages/DashboardPage";
@@ -18,7 +20,7 @@ const Router = ({ loading, user }) => {
             {user ? (
               <Route path="/" component={DashboardPage} />
             ) : (
-              <Route path="/" component={LandingPage} />
+              <PublicRoute name="Home" path="/" component={LandingPage} />
             )}
           </Switch>
         </MuiThemeProvider>
