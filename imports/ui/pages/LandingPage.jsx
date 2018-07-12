@@ -1,3 +1,9 @@
 import React from "react";
 
-export default (LandingPage = props => <h1>LandingPage</h1>);
+import Typography from "@material-ui/core/Typography";
+
+export default (LandingPage = props => (
+  <Typography variant="display4" color="primary">
+    LandingPage
+  </Typography>
+));

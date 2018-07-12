@@ -2,6 +2,9 @@ import React from "react";
 import gql from "graphql-tag";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { graphql } from "react-apollo";
+import { MuiThemeProvider } from "@material-ui/core/styles";
+
+import theme from "../../../assets/theme";
 
 import DashboardPage from "../../pages/DashboardPage";
 import LandingPage from "../../pages/LandingPage";
@@ -10,13 +13,15 @@ const Router = ({ loading, user }) => {
   if (!loading) {
     return (
       <BrowserRouter>
-        <Switch>
-          {user ? (
-            <Route path="/" component={DashboardPage} />
-          ) : (
-            <Route path="/" component={LandingPage} />
-          )}
-        </Switch>
+        <MuiThemeProvider theme={theme}>
+          <Switch>
+            {user ? (
+              <Route path="/" component={DashboardPage} />
+            ) : (
+              <Route path="/" component={LandingPage} />
+            )}
+          </Switch>
+        </MuiThemeProvider>
       </BrowserRouter>
     );
   }
