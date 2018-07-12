@@ -24,6 +24,9 @@ const styles = theme => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen
     })
+  },
+  root: {
+    backgroundColor: theme.palette.primary.dark
   }
 });
 
@@ -34,6 +37,7 @@ class NavigationLayout extends Component {
     return (
       <nav>
         <AppBar
+          classes={{ root: classes.root }}
           position="fixed"
           className={classNames(classes.appBar, open && classes.appBarShift)}
         >

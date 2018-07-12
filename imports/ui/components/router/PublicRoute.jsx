@@ -3,6 +3,8 @@ import classNames from "classnames";
 import { Route, Redirect } from "react-router-dom";
 import { PropTypes } from "prop-types";
 import { withRouter } from "react-router-dom";
+
+import Grid from "@material-ui/core/Grid";
 import { withStyles } from "@material-ui/core/styles";
 
 import NavigationLayout from "../../layouts/navigation/NavigationLayout";
@@ -14,7 +16,10 @@ const styles = theme => ({
     paddingTop: 56,
     [theme.breakpoints.up("sm")]: {
       paddingTop: 64
-    }
+    },
+    background: `linear-gradient(rgba(0, 0, 0, .6),rgba(0, 0, 0, .1)),
+      url("https://static-news.moneycontrol.com/static-mcnews/2018/01/BSE_Sensex_Budget_2017_volatile1-770x433.jpg")`,
+    backgroundSize: "cover"
   },
   main: {
     flex: 1,
