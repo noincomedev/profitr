@@ -1,0 +1,11 @@
+type Stock {
+  _id: String
+  name: String
+  code: String
+  symbol: String
+  created: String
+}
+
+extend type Query {
+  stocks: [Stock]
+}

@@ -2,6 +2,9 @@ import Portfolios from "./Portfolios";
 
 export default {
   Query: {
+    portfolio(obj, args, { userId }) {
+      return Portfolios.findOne({ _id: args._id, owner: userId });
+    },
     portfolios(obj, args, { userId }) {
       return Portfolios.find({ owner: userId }).fetch();
     }

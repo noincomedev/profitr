@@ -8,9 +8,12 @@ import UserResolvers from "../../../api/users/resolvers";
 import PortfolioSchema from "../../../api/portfolios/Portfolio.graphql";
 import PortfolioResolvers from "../../../api/portfolios/resolvers";
 
-const typeDefs = [UserSchema, PortfolioSchema];
+import StockSchema from "../../../api/stocks/Stock.graphql";
+import StockResolvers from "../../../api/stocks/resolvers";
 
-const resolvers = merge(UserResolvers, PortfolioResolvers);
+const typeDefs = [UserSchema, PortfolioSchema, StockSchema];
+
+const resolvers = merge(UserResolvers, PortfolioResolvers, StockResolvers);
 
 const schema = makeExecutableSchema({ typeDefs, resolvers });
 

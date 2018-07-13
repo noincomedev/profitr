@@ -8,6 +8,7 @@ type Portfolio {
 }
 
 extend type Query {
+  portfolio(_id: String!): Portfolio
   portfolios(owner: String!): [Portfolio]
 }
 

@@ -10,6 +10,7 @@ import theme from "../../../assets/theme";
 
 import DashboardPage from "../../pages/DashboardPage";
 import LandingPage from "../../pages/LandingPage";
+import PortfolioPage from "../../pages/PortfolioPage";
 import PrivateRoute from "./PrivateRoute";
 
 import Spinner from "../utils/Spinner";
@@ -25,10 +26,17 @@ const Router = ({ loading, user }) => {
                 name="Dashboard"
                 path="/"
                 component={DashboardPage}
+                exact
               />
             ) : (
-              <PublicRoute name="Home" path="/" component={LandingPage} />
+              <PublicRoute name="Home" path="/" component={LandingPage} exact />
             )}
+            <PrivateRoute
+              name="Portfolio"
+              path="/portfolios/:_id"
+              component={PortfolioPage}
+              exact
+            />
           </Switch>
         </MuiThemeProvider>
       </BrowserRouter>
