@@ -1,0 +1,16 @@
+type Portfolio {
+  _id: String
+  owner: String
+  status: Boolean
+  created: String
+  updated: String
+  name: String
+}
+
+extend type Query {
+  portfolios(owner: String!): [Portfolio]
+}
+
+type Mutation {
+  createPortfolio(name: String!): Portfolio
+}

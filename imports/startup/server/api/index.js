@@ -5,9 +5,12 @@ import merge from "lodash/merge";
 import UserSchema from "../../../api/users/User.graphql";
 import UserResolvers from "../../../api/users/resolvers";
 
-const typeDefs = [UserSchema];
+import PortfolioSchema from "../../../api/portfolios/Portfolio.graphql";
+import PortfolioResolvers from "../../../api/portfolios/resolvers";
 
-const resolvers = merge(UserResolvers);
+const typeDefs = [UserSchema, PortfolioSchema];
+
+const resolvers = merge(UserResolvers, PortfolioResolvers);
 
 const schema = makeExecutableSchema({ typeDefs, resolvers });
 

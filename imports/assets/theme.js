@@ -9,9 +9,21 @@ export default createMuiTheme({
       main: "#1DE9B6"
     },
     custom: {
-      error: "#d45753",
+      error: "#FFFF00",
       success: "#d1e37f",
       text: "#94d6d6"
+    }
+  },
+  overrides: {
+    MuiInput: {
+      underline: {
+        "&:before": {
+          borderBottom: `2px solid #1DE9B6`
+        },
+        "&:hover:not($disabled):before": {
+          borderBottom: `2px solid #00838F`
+        }
+      }
     }
   }
 });
