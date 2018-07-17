@@ -7,10 +7,9 @@ import NavigationLayout from "../../layouts/navigation/NavigationLayout";
 
 const styles = theme => ({
   main: {
-    flex: 1,
     backgroundColor: "#E0F2F1",
-    padding: 24,
-    marginTop: 56
+    paddingTop: 56,
+    height: "100%"
   }
 });
 

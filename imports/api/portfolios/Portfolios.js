@@ -47,7 +47,7 @@ Portfolios.schema = new SimpleSchema({
     label: "The name of this portfolio.",
     optional: false
   },
-  stocks: [String]
+  stockIds: [String]
 });
 
 Portfolios.attachSchema(Portfolios.schema);

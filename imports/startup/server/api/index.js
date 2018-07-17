@@ -5,15 +5,23 @@ import merge from "lodash/merge";
 import UserSchema from "../../../api/users/User.graphql";
 import UserResolvers from "../../../api/users/resolvers";
 
+import OperationSchema from "../../../api/operations/Operation.graphql";
+import OperationResolvers from "../../../api/operations/resolvers";
+
 import PortfolioSchema from "../../../api/portfolios/Portfolio.graphql";
 import PortfolioResolvers from "../../../api/portfolios/resolvers";
 
 import StockSchema from "../../../api/stocks/Stock.graphql";
 import StockResolvers from "../../../api/stocks/resolvers";
 
-const typeDefs = [UserSchema, PortfolioSchema, StockSchema];
+const typeDefs = [UserSchema, OperationSchema, PortfolioSchema, StockSchema];
 
-const resolvers = merge(UserResolvers, PortfolioResolvers, StockResolvers);
+const resolvers = merge(
+  UserResolvers,
+  OperationResolvers,
+  PortfolioResolvers,
+  StockResolvers
+);
 
 const schema = makeExecutableSchema({ typeDefs, resolvers });
 

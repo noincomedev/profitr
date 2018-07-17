@@ -1,3 +1,4 @@
+import Operations from "../operations/Operations";
 import Portfolios from "./Portfolios";
 
 export default {
@@ -9,13 +10,14 @@ export default {
       return Portfolios.find({ owner: userId }).fetch();
     }
   },
+  Portfolio: {},
   Mutation: {
     createPortfolio(obj, { name }, { userId }) {
       if (userId) {
         const portfolioId = Portfolios.insert({
           owner: userId,
           name,
-          stocks: []
+          stockIds: []
         });
         return portfolioId;
       }
@@ -26,20 +28,33 @@ export default {
       if (userId) {
         const portfolio = Portfolios.findOne({ _id, owner: userId });
         if (state) {
-          let { stocks } = portfolio;
-          stocks.push(stockId);
-          return Portfolios.update({ _id: _id }, { $set: { stocks } });
+          let { stockIds } = portfolio;
+          stockIds.push(stockId);
+          return Portfolios.update({ _id }, { $set: { stockIds } });
         } else {
-          let { stocks } = portfolio;
-          let updatedStocks = stocks.filter(stock => {
+          let { stockIds } = portfolio;
+          let updatedStocks = stockIds.filter(stock => {
             if (stock == stockId) return false;
             else return true;
           });
           return Portfolios.update(
-            { _id: _id },
-            { $set: { stocks: updatedStocks } }
+            { _id },
+            { $set: { stockIds: updatedStocks } }
           );
         }
+      }
+      throw new Error("Unauthorized");
+    },
+    profit(obj, args, { userId }) {
+      const { owner, stockIds, from, to } = args;
+      if (userId) {
+        const _id = Operations.insert({
+          owner,
+          stockIds,
+          from,
+          to
+        });
+        return Operations.findOne({ _id });
       }
       throw new Error("Unauthorized");
     }

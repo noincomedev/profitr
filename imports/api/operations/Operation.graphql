@@ -1,0 +1,10 @@
+type Operation {
+  _id: String
+  owner: String
+  created: String
+  stockIds: [String]
+  from: String
+  to: String
+  result: Float
+  detail: String
+}

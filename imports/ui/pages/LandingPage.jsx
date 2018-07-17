@@ -28,13 +28,15 @@ styles = theme => ({
   input: {
     color: "red"
   },
+  logo: {
+    color: theme.palette.primary.light
+  },
   signinContainer: {
     background: theme.palette.secondary.main,
     borderRadius: `0px 0px 25px 25px`,
     alignItems: "center"
   },
   subheading: {
-    marginTop: theme.spacing.unit * 2,
     color: theme.palette.grey[400]
   }
 });
@@ -89,14 +91,28 @@ class LandingPage extends Component {
       >
         <Grid item xs={12} sm={8} md={6} classes={{ item: classes.item }}>
           <Typography
+            style={{ marginTop: 16 }}
+            variant="headline"
+            color="secondary"
+            align="center"
+          >
+            Stock Simulator
+          </Typography>
+          <Typography
+            variant="display4"
+            color="primary"
+            align="center"
+            classes={{ colorPrimary: classes.logo }}
+          >
+            PROFITR
+          </Typography>
+          <Typography
+            paragraph
             variant="subheading"
             classes={{ subheading: classes.subheading }}
             align="center"
           >
             Calculate your profits between two dates!
-          </Typography>
-          <Typography variant="display2" color="secondary" align="center">
-            Playmoney stock simulator
           </Typography>
           <form onSubmit={this.handleSubmit} noValidate>
             <Grid

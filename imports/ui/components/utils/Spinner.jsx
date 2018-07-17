@@ -7,7 +7,8 @@ import { withStyles } from "@material-ui/core/styles";
 const styles = theme => ({
   container: {
     margin: "auto",
-    minHeight: "100%"
+    minHeight: "100%",
+    padding: theme.spacing.unit * 2
   }
 });
 

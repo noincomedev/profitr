@@ -5,7 +5,7 @@ type Portfolio {
   created: String
   updated: String
   name: String
-  stocks: [String]
+  stockIds: [String]
 }
 
 extend type Query {
@@ -20,4 +20,10 @@ type Mutation {
     stockId: String!
     state: Boolean!
   ): Portfolio
+  profit(
+    owner: String!
+    from: String!
+    to: String!
+    stockIds: [String]
+  ): Operation
 }
