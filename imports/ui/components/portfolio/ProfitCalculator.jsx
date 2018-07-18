@@ -80,9 +80,26 @@ class ProfitCalculator extends Component {
                   style: "growl-top-right",
                   icon: "fa-warning"
                 });
+              }
+              if (stockIds.length == 0) {
+                Bert.alert({
+                  title: "Error",
+                  message: "Choose at least one stock.",
+                  type: "warning",
+                  style: "growl-top-right",
+                  icon: "fa-warning"
+                });
               } else {
                 profit({
                   variables: { from, to, stockIds, owner: _id }
+                }).catch(error => {
+                  Bert.alert({
+                    title: "Error",
+                    message: error.message,
+                    type: "danger",
+                    style: "growl-top-right",
+                    icon: "fa-warning"
+                  });
                 });
               }
             }}
