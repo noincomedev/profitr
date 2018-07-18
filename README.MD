@@ -1,4 +1,4 @@
-###PROFITR
+### PROFITR
 
 - Calculate your portfolio performance between two dates.
 - Available stocks: USD, EUR, UF.
@@ -22,5 +22,7 @@ then clone this repo, cd to project and run:
 and lastly:
 
 `meteor run`
+
+open your favorite web browser and visit localhost:3000!
 
 If you have any questions just send me a [tweet](https://twitter.com/noincomedev)
